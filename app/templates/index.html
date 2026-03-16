@@ -1,0 +1,142 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<!-- banner -->
+<section class="banner_w3lspvt" id="home">
+	<div class="csslider infinity" id="slider1">
+	
+				<div class="banner-top">
+					<div class="overlay">
+						<div class="container">
+							<div class="w3layouts-banner-info text-center">
+								<h3 class="text-wh">CropIQ</h3>
+								<h4 class="text-wh mx-auto my-4">
+									<b data-i18n-en="Get informed decisions about your farming strategy."
+										data-i18n-hi="अपनी खेती की रणनीति के लिए सही निर्णय लें।">
+										Get informed decisions about your farming strategy.
+									</b>
+								</h4>
+								<br>
+								<h4 class="text-wh mx-auto my-4">
+									<strong data-i18n-en="Here are some questions we'll answer"
+										data-i18n-hi="यहाँ कुछ सवाल हैं जिनका हम जवाब देंगे">
+										Here are some questions we'll answer
+									</strong>
+								</h4>
+								<p class="text-li mx-auto mt-2">
+									<span data-i18n-en="1. What crop to plant here?" data-i18n-hi="1. यहाँ कौन सी फसल लगाएँ?">
+										1. What crop to plant here?
+									</span>
+									<br>
+									<span data-i18n-en="2. What fertilizer to use?" data-i18n-hi="2. कौन सा उर्वरक उपयोग करें?">
+										2. What fertilizer to use?
+									</span>
+									<br>
+									<span data-i18n-en="3. Which disease do your crop have?" data-i18n-hi="3. फसल में कौन सा रोग है?">
+										3. Which disease do your crop have?
+									</span>
+									<br>
+									<span data-i18n-en="4. How to cure the disease?" data-i18n-hi="4. रोग का उपचार कैसे करें?">
+										4. How to cure the disease?
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+	</div>
+</section>
+<!-- //banner -->
+
+<!-- core values -->
+<section class="core-value py-5">
+	<div class="container py-md-4">
+		<h3 class="heading mb-sm-5 mb-4 text-center" data-i18n-en="About Us" data-i18n-hi="हमारे बारे में">About Us</h3>
+		<div class="row core-grids">
+			<div class="col-lg-6 core-left">
+				<img src="{{ url_for('static', filename='images/core.jpg') }}" class="img-fluid" alt="" />
+			</div>
+			<div class="col-lg-6 core-right">
+				<h3 class="mt-4" data-i18n-en="Improving Agriculture, Improving Lives, Cultivating Crops To Make Farmers Increase Profit."
+					data-i18n-hi="कृषि को बेहतर बनाना, जीवन सुधारना और किसानों की आय बढ़ाने के लिए खेती को मजबूत बनाना।">
+					Improving Agriculture, Improving Lives, Cultivating Crops To Make Farmers Increase Profit.
+				</h3>
+				<p class="mt-3" data-i18n-en="We use state-of-the-art machine learning and deep learning technologies to help you guide through the entire farming process. Make informed decisions to understand the demographics of your area, understand the factors that affect your crop and keep them healthy for a super awesome successful yield."
+					data-i18n-hi="हम अत्याधुनिक मशीन लर्निंग और डीप लर्निंग का उपयोग करके पूरे कृषि प्रक्रिया में मार्गदर्शन देते हैं। अपने क्षेत्र की स्थितियों को समझकर सही निर्णय लें और फसल को स्वस्थ रखकर अच्छी उपज प्राप्त करें।">
+					We use state-of-the-art machine learning and deep learning technologies to help you guide through
+					the entire farming process. Make informed decisions to understand the demographics of your area,
+					understand the factors that affect your crop and keep them healthy for a super awesome successful yield.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //core values -->
+
+<!-- Products & Services -->
+<section class="blog py-5">
+	<div class="container py-md-5">
+		<h3 class="heading mb-sm-5 mb-4 text-center" data-i18n-en="Our Services" data-i18n-hi="हमारी सेवाएँ">Our Services</h3>
+		<div class="row blog-grids">
+			<div class="col-lg-4 col-md-6 blog-left mb-lg-0 mb-sm-5 pb-lg-0 pb-5">
+				<img src="{{ url_for('static', filename='images/s3.jpg') }}" class="img-fluid" alt="" />
+				<a href="{{ url_for('crop_recommend') }}">
+					<div class="blog-info">
+
+						<h4 data-i18n-en="Crop" data-i18n-hi="फसल">Crop</h4>
+
+						<p class="mt-2" data-i18n-en="Recommendation about the type of crops to be cultivated which is best suited for the respective conditions"
+							data-i18n-hi="आपके क्षेत्र की परिस्थितियों के लिए सबसे उपयुक्त फसल की सिफारिश।">
+							Recommendation about the type of crops to be cultivated which is best suited
+							for the respective conditions
+						</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-4 col-md-6 blog-middle mb-lg-0 mb-sm-5 pb-lg-0 pb-md-5">
+				<img src="{{ url_for('static', filename='images/s2.jpg') }}" class="img-fluid" alt="" />
+				<a href="{{ url_for('fertilizer_recommendation') }}">
+					<div class="blog-info">
+						<h4 data-i18n-en="Fertilizer" data-i18n-hi="उर्वरक">Fertilizer</h4>
+						<p class="mt-2" data-i18n-en="Recommendation about the type of fertilizer best suited for the particular soil and the recommended crop"
+							data-i18n-hi="विशेष मिट्टी और फसल के लिए सबसे उपयुक्त उर्वरक की सिफारिश।">
+							Recommendation about the type of fertilizer best suited for the particular soil
+							and the recommended crop
+						</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-4 col-md-6 blog-right mt-lg-0 mt-5 pt-lg-0 pt-md-5">
+
+				<img src="{{ url_for('static', filename='images/s4.jpg') }}" class="img-fluid" alt="">
+
+				<!-- <img src="images/s4.jpg" class="img-fliud" alt="" /> -->
+				<a href="{{ url_for('disease_prediction') }}">
+					<div class="blog-info">
+						<h4 data-i18n-en="Crop Disease" data-i18n-hi="फसल रोग">Crop Disease</h4>
+						<p class="mt-2" data-i18n-en="Predicting the name and causes of crop disease and suggestions to cure it"
+							data-i18n-hi="फसल रोग का नाम, कारण और उपचार के सुझाव।">
+							Predicting the name and causes of crop disease and suggestions to cure it
+						</p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //Products & Services -->
+
+
+<!-- Creating custom grid and hover effect
+<section>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <div class="hovereffect">
+        <img class="img-responsive" src="images/s2.jpg" alt="">
+        <div class="overlay">
+           <h2>Hover effect 1</h2>
+           <a class="info" href="#">link here</a>
+        </div>
+    </div>
+</div> -->
+
+{% endblock %}

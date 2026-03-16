@@ -1,0 +1,43 @@
+{% extends 'layout.html' %} {% block body %}
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1 data-i18n-en="Disease Detection" data-i18n-hi="रोग पहचान">Disease Detection</h1>
+      <p data-i18n-en="Upload a leaf image to identify plant disease and get suggestions."
+        data-i18n-hi="पौधे के रोग की पहचान और सुझाव पाने के लिए पत्ती की फोटो अपलोड करें।">
+        Upload a leaf image to identify plant disease and get suggestions.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="container py-4">
+  <div class="form-card">
+    {% if error %}
+      <div class="alert alert-warning">{{ error }}</div>
+    {% endif %}
+    <form class="form-signin" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="lang" class="lang-field" />
+      <h2 class="h4 mb-3 font-weight-normal">
+        <b data-i18n-en="Please Upload The Image" data-i18n-hi="कृपया छवि अपलोड करें">Please Upload The Image</b>
+      </h2>
+      <input type="file" name="file" class="form-control-file" id="inputfile" onchange="preview_image(event)" />
+      <div class="image-preview">
+        <img id="output-image" class="rounded mx-auto d-block" />
+      </div>
+      <button class="btn btn-lg btn-primary btn-block primary-btn" type="submit" data-i18n-en="Predict" data-i18n-hi="पहचान करें">Predict</button>
+    </form>
+  </div>
+</section>
+
+<script type="text/javascript">
+  function preview_image(event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      var output = document.getElementById('output-image');
+      output.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+  }
+</script>
+{% endblock %}

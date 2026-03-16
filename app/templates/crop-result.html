@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block body %}
+<section class="page-hero compact">
+  <div class="container">
+    <div class="hero-content">
+      <h1 data-i18n-en="Crop Recommendation" data-i18n-hi="फसल सुझाव">Crop Recommendation</h1>
+      <p data-i18n-en="Based on soil inputs and live weather conditions."
+        data-i18n-hi="मिट्टी की जानकारी और मौसम के आधार पर।">
+        Based on soil inputs and live weather conditions.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="container py-4">
+  <div class="result-card">
+    <h2>
+      <span data-i18n-en="You should grow" data-i18n-hi="आपको उगाना चाहिए">You should grow</span>
+      <span class="highlight">{{ prediction }}</span>
+    </h2>
+    <p class="muted">
+      <span data-i18n-en="Weather used:" data-i18n-hi="उपयोग किया मौसम:">Weather used:</span>
+      {{ temperature }}°C, {{ humidity }}% <span data-i18n-en="humidity" data-i18n-hi="नमी">humidity</span>.
+    </p>
+    {% if estimation_note %}
+      <p class="muted">{{ estimation_note }}</p>
+    {% endif %}
+
+    {% if top_predictions %}
+      <div class="result-grid">
+        {% for item in top_predictions %}
+          <div class="result-item">
+            <div class="metric-title">{{ item.label }}</div>
+            <div class="metric-value">{{ (item.probability * 100) | round(2) }}% confidence</div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

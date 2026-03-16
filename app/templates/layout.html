@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{{ title }}</title>
+  <!-- Logo removed per request -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="keywords" content="CropIQ, crop recommendation, fertilizer recommendation, plant disease detection" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top site-nav">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url_for('home') }}">
+        <span class="brand-text">CropIQ</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('home') }}" data-i18n-en="Home" data-i18n-hi="मुख्य">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('crop_recommend') }}" data-i18n-en="Crop" data-i18n-hi="फसल">Crop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('fertilizer_recommendation') }}" data-i18n-en="Fertilizer" data-i18n-hi="उर्वरक">Fertilizer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('disease_prediction') }}" data-i18n-en="Disease" data-i18n-hi="रोग">Disease</a>
+          </li>
+          <li class="nav-item language-toggle">
+            <select id="lang-select" class="form-control form-control-sm" aria-label="Language selector">
+              <option value="en">English</option>
+              <option value="hi">हिंदी</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% block body %} {% endblock %}
+
+  <footer class="text-center py-5 site-footer">
+    <div class="container py-md-3">
+      <h2 class="logo2 text-center">
+        <a href="{{ url_for('home') }}">CropIQ</a>
+      </h2>
+      <div class="w3l-copy text-center">
+        <p class="text-da" data-i18n-en="An Environmental Intelligence Startup" data-i18n-hi="पर्यावरणीय इंटेलिजेंस स्टार्टअप">
+          An Environmental Intelligence Startup
+        </p>
+      </div>
+      <p data-i18n-en="Copyright 2026" data-i18n-hi="कॉपीराइट 2026">Copyright 2026</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='scripts/weather.js') }}"></script>
+  <script src="{{ url_for('static', filename='scripts/i18n.js') }}"></script>
+</body>
+
+</html>

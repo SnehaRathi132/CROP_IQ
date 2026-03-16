@@ -1,0 +1,120 @@
+{
+  "crop": {
+    "dataset": "archive/Crop_recommendation.csv",
+    "features": [
+      "N",
+      "P",
+      "K",
+      "temperature",
+      "humidity",
+      "ph",
+      "rainfall"
+    ],
+    "target": "label",
+    "label_count": 22,
+    "labels": [
+      "apple",
+      "banana",
+      "blackgram",
+      "chickpea",
+      "coconut",
+      "coffee",
+      "cotton",
+      "grapes",
+      "jute",
+      "kidneybeans",
+      "lentil",
+      "maize",
+      "mango",
+      "mothbeans",
+      "mungbean",
+      "muskmelon",
+      "orange",
+      "papaya",
+      "pigeonpeas",
+      "pomegranate",
+      "rice",
+      "watermelon"
+    ],
+    "comparison_csv": "reports/crop_model_comparison.csv",
+    "confusion_matrix_csv": "reports/crop_confusion_matrix.csv",
+    "best_model": "RandomForest",
+    "best_model_path": "app/models/crop_model.joblib",
+    "results": [
+      {
+        "model": "RandomForest",
+        "accuracy": 0.993182,
+        "f1_macro": 0.993178,
+        "train_size": 1760,
+        "test_size": 440
+      },
+      {
+        "model": "DecisionTree",
+        "accuracy": 0.979545,
+        "f1_macro": 0.979423,
+        "train_size": 1760,
+        "test_size": 440
+      },
+      {
+        "model": "LogisticRegression",
+        "accuracy": 0.972727,
+        "f1_macro": 0.972464,
+        "train_size": 1760,
+        "test_size": 440
+      }
+    ],
+    "trained_at": "2026-03-12T19:02:06Z"
+  },
+  "fertilizer": {
+    "dataset": "archive/Fertilizer Prediction.csv",
+    "features": [
+      "temperature",
+      "humidity",
+      "moisture",
+      "soil_type",
+      "crop_type",
+      "nitrogen",
+      "potassium",
+      "phosphorous"
+    ],
+    "target": "fertilizer",
+    "label_count": 7,
+    "labels": [
+      "10-26-26",
+      "14-35-14",
+      "17-17-17",
+      "20-20",
+      "28-28",
+      "DAP",
+      "Urea"
+    ],
+    "comparison_csv": "reports/fertilizer_model_comparison.csv",
+    "confusion_matrix_csv": "reports/fertilizer_confusion_matrix.csv",
+    "best_model": "RandomForest",
+    "best_model_path": "app/models/fertilizer_model.joblib",
+    "results": [
+      {
+        "model": "RandomForest",
+        "accuracy": 1.0,
+        "f1_macro": 1.0,
+        "train_size": 79,
+        "test_size": 20
+      },
+      {
+        "model": "DecisionTree",
+        "accuracy": 0.95,
+        "f1_macro": 0.92381,
+        "train_size": 79,
+        "test_size": 20
+      },
+      {
+        "model": "LogisticRegression",
+        "accuracy": 1.0,
+        "f1_macro": 1.0,
+        "train_size": 79,
+        "test_size": 20
+      }
+    ],
+    "trained_at": "2026-03-12T19:02:08Z"
+  }
+}

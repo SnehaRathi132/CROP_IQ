@@ -1,0 +1,4 @@
+model,accuracy,f1_macro,train_size,test_size
+RandomForest,0.993182,0.993178,1760,440
+DecisionTree,0.979545,0.979423,1760,440
+LogisticRegression,0.972727,0.972464,1760,440

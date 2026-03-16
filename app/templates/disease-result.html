@@ -1,0 +1,16 @@
+{% extends 'layout.html' %} {% block body %}
+<section class="page-hero compact">
+  <div class="container">
+    <div class="hero-content">
+      <h1 data-i18n-en="Disease Detection" data-i18n-hi="रोग पहचान">Disease Detection</h1>
+      <p data-i18n-en="Diagnosis and recommendations." data-i18n-hi="निदान और सुझाव।">Diagnosis and recommendations.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container py-4">
+  <div class="result-card">
+    <p>{{ prediction }}</p>
+  </div>
+</section>
+{% endblock %}

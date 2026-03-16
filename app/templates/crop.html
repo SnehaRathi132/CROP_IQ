@@ -1,0 +1,147 @@
+{% extends 'layout.html' %}
+{% block body %}
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1 data-i18n-en="Crop Recommendation" data-i18n-hi="फसल सुझाव">Crop Recommendation</h1>
+      <p data-i18n-en="Choose a language above. Enter simple farm details and we estimate NPK if unknown."
+        data-i18n-hi="ऊपर से भाषा चुनें। खेत की सरल जानकारी दें और NPK न पता हो तो हम अनुमान लगाते हैं।">
+        Choose a language above. Enter simple farm details and we estimate NPK if unknown.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="container py-4">
+  <div class="form-card">
+    <form id="crop-form" method="POST" action="{{ url_for('crop_prediction') }}">
+      <p class="muted" data-i18n-en="We can estimate soil nutrients (NPK) and pH from your location or soil type."
+        data-i18n-hi="हम आपकी लोकेशन या मिट्टी के प्रकार से NPK और pH का अनुमान लगा सकते हैं।">
+        We can estimate soil nutrients (NPK) and pH from your location or soil type.
+      </p>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="SoilType"><b data-i18n-en="Soil Type" data-i18n-hi="मिट्टी का प्रकार">Soil Type</b></label>
+          <select class="form-control" id="SoilType" name="soil_type">
+            <option value="" data-i18n-en="Select soil type" data-i18n-hi="मिट्टी चुनें">Select soil type</option>
+            <option value="Black" data-i18n-en="Black" data-i18n-hi="काली">Black</option>
+            <option value="Clayey" data-i18n-en="Clayey" data-i18n-hi="चिकनी">Clayey</option>
+            <option value="Loamy" data-i18n-en="Loamy" data-i18n-hi="दोमट">Loamy</option>
+            <option value="Red" data-i18n-en="Red" data-i18n-hi="लाल">Red</option>
+            <option value="Sandy" data-i18n-en="Sandy" data-i18n-hi="रेतीली">Sandy</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="SoilFertility"><b data-i18n-en="Soil Fertility" data-i18n-hi="मिट्टी की उर्वरता">Soil Fertility</b></label>
+          <select class="form-control" id="SoilFertility" name="fertility_level">
+            <option value="" data-i18n-en="Select fertility" data-i18n-hi="उर्वरता चुनें">Select fertility</option>
+            <option value="low" data-i18n-en="Low" data-i18n-hi="कम">Low</option>
+            <option value="medium" data-i18n-en="Medium" data-i18n-hi="मध्यम">Medium</option>
+            <option value="high" data-i18n-en="High" data-i18n-hi="अधिक">High</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Season"><b data-i18n-en="Season" data-i18n-hi="मौसम">Season</b></label>
+          <select class="form-control" id="Season" name="season">
+            <option value="" data-i18n-en="Select season" data-i18n-hi="मौसम चुनें">Select season</option>
+            <option value="Kharif" data-i18n-en="Kharif" data-i18n-hi="खरीफ">Kharif</option>
+            <option value="Rabi" data-i18n-en="Rabi" data-i18n-hi="रबी">Rabi</option>
+            <option value="Zaid" data-i18n-en="Zaid" data-i18n-hi="जायद">Zaid</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Irrigation"><b data-i18n-en="Irrigation" data-i18n-hi="सिंचाई">Irrigation</b></label>
+          <select class="form-control" id="Irrigation" name="irrigation">
+            <option value="" data-i18n-en="Select irrigation" data-i18n-hi="सिंचाई चुनें">Select irrigation</option>
+            <option value="Rainfed" data-i18n-en="Rainfed" data-i18n-hi="बरसाती">Rainfed</option>
+            <option value="Canal" data-i18n-en="Canal" data-i18n-hi="नहर">Canal</option>
+            <option value="Borewell" data-i18n-en="Borewell" data-i18n-hi="बोरवेल">Borewell</option>
+            <option value="Drip" data-i18n-en="Drip" data-i18n-hi="ड्रिप">Drip</option>
+            <option value="Sprinkler" data-i18n-en="Sprinkler" data-i18n-hi="स्प्रिंकलर">Sprinkler</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Rainfall"><b data-i18n-en="Rainfall (mm, optional)" data-i18n-hi="वर्षा (मिमी, वैकल्पिक)">Rainfall (mm, optional)</b></label>
+          <input type="number" step="0.01" class="form-control" id="Rainfall" name="rainfall"
+            placeholder="e.g., 120" data-placeholder-en="e.g., 120" data-placeholder-hi="उदा., 120" />
+        </div>
+        <div class="form-group">
+          <label for="RainfallLevel"><b data-i18n-en="Rainfall Level" data-i18n-hi="वर्षा स्तर">Rainfall Level</b></label>
+          <select class="form-control" id="RainfallLevel" name="rainfall_level">
+            <option value="" data-i18n-en="Select level" data-i18n-hi="स्तर चुनें">Select level</option>
+            <option value="low" data-i18n-en="Low" data-i18n-hi="कम">Low</option>
+            <option value="medium" data-i18n-en="Medium" data-i18n-hi="मध्यम">Medium</option>
+            <option value="high" data-i18n-en="High" data-i18n-hi="अधिक">High</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="City"><b data-i18n-en="City/Village (optional)" data-i18n-hi="शहर/गाँव (वैकल्पिक)">City/Village (optional)</b></label>
+          <input type="text" class="form-control" id="City" name="city"
+            placeholder="e.g., Pune" data-placeholder-en="e.g., Pune" data-placeholder-hi="उदा., पुणे" />
+        </div>
+      </div>
+
+      <div class="weather-panel">
+        <button type="button" class="btn btn-outline-dark" id="crop-locate"
+          data-i18n-en="Use My Location" data-i18n-hi="मेरी लोकेशन उपयोग करें">Use My Location</button>
+        <span class="weather-status" id="crop-weather-status" data-i18n-en="Auto-fill uses your location."
+          data-i18n-hi="ऑटो-फिल आपकी लोकेशन का उपयोग करता है।">Auto-fill uses your location.</span>
+      </div>
+      <p class="muted" data-i18n-en="Tip: If auto-fill fails, you can still enter rainfall or choose levels."
+        data-i18n-hi="यदि ऑटो-फिल न चले, तो वर्षा दर्ज करें या स्तर चुनें।">
+        Tip: If auto-fill fails, you can still enter rainfall or choose levels.
+      </p>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="crop-temperature"><b data-i18n-en="Temperature (°C)" data-i18n-hi="तापमान (°C)">Temperature (°C)</b></label>
+          <input type="number" step="0.01" class="form-control" id="crop-temperature" name="temperature"
+            placeholder="Auto-filled" data-placeholder-en="Auto-filled" data-placeholder-hi="स्वतः भरा" />
+        </div>
+        <div class="form-group">
+          <label for="crop-humidity"><b data-i18n-en="Humidity (%)" data-i18n-hi="नमी (%)">Humidity (%)</b></label>
+          <input type="number" step="0.01" class="form-control" id="crop-humidity" name="humidity"
+            placeholder="Auto-filled" data-placeholder-en="Auto-filled" data-placeholder-hi="स्वतः भरा" />
+        </div>
+      </div>
+
+      <p class="muted" data-i18n-en="Optional: If you have soil test values, enter NPK and pH below."
+        data-i18n-hi="वैकल्पिक: यदि आपके पास मिट्टी परीक्षण मान हैं, तो नीचे NPK और pH भरें।">
+        Optional: If you have soil test values, enter NPK and pH below.
+      </p>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="Nitrogen"><b data-i18n-en="Nitrogen (N)" data-i18n-hi="नाइट्रोजन (N)">Nitrogen (N)</b></label>
+          <input type="number" class="form-control" id="Nitrogen" name="nitrogen"
+            placeholder="e.g., 50" data-placeholder-en="e.g., 50" data-placeholder-hi="उदा., 50" />
+        </div>
+        <div class="form-group">
+          <label for="Phosphorous"><b data-i18n-en="Phosphorous (P)" data-i18n-hi="फॉस्फोरस (P)">Phosphorous (P)</b></label>
+          <input type="number" class="form-control" id="Phosphorous" name="phosphorous"
+            placeholder="e.g., 50" data-placeholder-en="e.g., 50" data-placeholder-hi="उदा., 50" />
+        </div>
+        <div class="form-group">
+          <label for="Pottasium"><b data-i18n-en="Potassium (K)" data-i18n-hi="पोटैशियम (K)">Potassium (K)</b></label>
+          <input type="number" class="form-control" id="Pottasium" name="pottasium"
+            placeholder="e.g., 50" data-placeholder-en="e.g., 50" data-placeholder-hi="उदा., 50" />
+        </div>
+        <div class="form-group">
+          <label for="ph"><b data-i18n-en="pH (optional)" data-i18n-hi="pH (वैकल्पिक)">pH (optional)</b></label>
+          <input type="number" step="0.01" class="form-control" id="ph" name="ph"
+            placeholder="e.g., 6.5" data-placeholder-en="e.g., 6.5" data-placeholder-hi="उदा., 6.5" />
+        </div>
+      </div>
+
+      <input type="hidden" id="crop-lat" name="lat" />
+      <input type="hidden" id="crop-lon" name="lon" />
+      <input type="hidden" name="lang" class="lang-field" />
+
+      <div class="d-flex justify-content-center mt-3">
+        <button type="submit" class="btn btn-info primary-btn" data-i18n-en="Predict" data-i18n-hi="सुझाव दें">Predict</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

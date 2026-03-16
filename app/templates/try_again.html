@@ -1,0 +1,21 @@
+{% extends 'layout.html' %} {% block body %}
+<section class="page-hero compact">
+  <div class="container">
+    <div class="hero-content">
+      <h1 data-i18n-en="Something Went Wrong" data-i18n-hi="कुछ गलत हो गया">Something Went Wrong</h1>
+      <p data-i18n-en="Please adjust the inputs or try again."
+        data-i18n-hi="कृपया इनपुट ठीक करें या फिर से प्रयास करें।">Please adjust the inputs or try again.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container py-4">
+  <div class="result-card text-center">
+    <h2 data-i18n-en="We couldn't process your request." data-i18n-hi="हम आपका अनुरोध प्रोसेस नहीं कर पाए।">We couldn't process your request.</h2>
+    {% if message %}
+      <p class="muted">{{ message }}</p>
+    {% endif %}
+    <a href="{{ url_for('home') }}" class="btn btn-info primary-btn mt-3" data-i18n-en="Go Home" data-i18n-hi="मुख्य पेज">Go Home</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,166 @@
+{% extends 'layout.html' %}
+{% block body %}
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1 data-i18n-en="Fertilizer Recommendation" data-i18n-hi="उर्वरक सुझाव">Fertilizer Recommendation</h1>
+      <p data-i18n-en="Combine soil nutrients with moisture and weather to get a fertilizer match."
+        data-i18n-hi="मिट्टी के पोषक तत्व, नमी और मौसम को मिलाकर सही उर्वरक सुझाया जाता है।">
+        Combine soil nutrients with moisture and weather to get a fertilizer match.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="container py-4">
+  <div class="form-card">
+    <form id="fertilizer-form" method="POST" action="{{ url_for('fert_recommend') }}">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="Nitrogen"><b data-i18n-en="Nitrogen (N)" data-i18n-hi="नाइट्रोजन (N)">Nitrogen (N)</b></label>
+          <input type="number" class="form-control" id="Nitrogen" name="nitrogen"
+            placeholder="e.g., 50" data-placeholder-en="e.g., 50" data-placeholder-hi="उदा., 50" />
+        </div>
+        <div class="form-group">
+          <label for="Phosphorous"><b data-i18n-en="Phosphorous (P)" data-i18n-hi="फॉस्फोरस (P)">Phosphorous (P)</b></label>
+          <input type="number" class="form-control" id="Phosphorous" name="phosphorous"
+            placeholder="e.g., 50" data-placeholder-en="e.g., 50" data-placeholder-hi="उदा., 50" />
+        </div>
+        <div class="form-group">
+          <label for="Pottasium"><b data-i18n-en="Potassium (K)" data-i18n-hi="पोटैशियम (K)">Potassium (K)</b></label>
+          <input type="number" class="form-control" id="Pottasium" name="pottasium"
+            placeholder="e.g., 50" data-placeholder-en="e.g., 50" data-placeholder-hi="उदा., 50" />
+        </div>
+        <div class="form-group">
+          <label for="Moisture"><b data-i18n-en="Soil Moisture" data-i18n-hi="मिट्टी की नमी">Soil Moisture</b></label>
+          <input type="number" step="0.01" class="form-control" id="Moisture" name="moisture"
+            placeholder="e.g., 40" data-placeholder-en="e.g., 40" data-placeholder-hi="उदा., 40" required />
+        </div>
+        <div class="form-group">
+          <label for="SoilType"><b data-i18n-en="Soil Type" data-i18n-hi="मिट्टी का प्रकार">Soil Type</b></label>
+          <select class="form-control" id="SoilType" name="soil_type" required>
+            <option value="" data-i18n-en="Select soil type" data-i18n-hi="मिट्टी चुनें">Select soil type</option>
+            <option value="Black" data-i18n-en="Black" data-i18n-hi="काली">Black</option>
+            <option value="Clayey" data-i18n-en="Clayey" data-i18n-hi="चिकनी">Clayey</option>
+            <option value="Loamy" data-i18n-en="Loamy" data-i18n-hi="दोमट">Loamy</option>
+            <option value="Red" data-i18n-en="Red" data-i18n-hi="लाल">Red</option>
+            <option value="Sandy" data-i18n-en="Sandy" data-i18n-hi="रेतीली">Sandy</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="CropType"><b data-i18n-en="Crop Type (ML)" data-i18n-hi="फसल प्रकार (ML)">Crop Type (ML)</b></label>
+          <select class="form-control" id="CropType" name="crop_type" required>
+            <option value="" data-i18n-en="Select crop type" data-i18n-hi="फसल चुनें">Select crop type</option>
+            <option value="Barley" data-i18n-en="Barley" data-i18n-hi="जौ">Barley</option>
+            <option value="Cotton" data-i18n-en="Cotton" data-i18n-hi="कपास">Cotton</option>
+            <option value="Ground Nuts" data-i18n-en="Ground Nuts" data-i18n-hi="मूंगफली">Ground Nuts</option>
+            <option value="Maize" data-i18n-en="Maize" data-i18n-hi="मक्का">Maize</option>
+            <option value="Millets" data-i18n-en="Millets" data-i18n-hi="मिलेट्स">Millets</option>
+            <option value="Oil seeds" data-i18n-en="Oil seeds" data-i18n-hi="तिलहन">Oil seeds</option>
+            <option value="Paddy" data-i18n-en="Paddy" data-i18n-hi="धान">Paddy</option>
+            <option value="Pulses" data-i18n-en="Pulses" data-i18n-hi="दालें">Pulses</option>
+            <option value="Sugarcane" data-i18n-en="Sugarcane" data-i18n-hi="गन्ना">Sugarcane</option>
+            <option value="Tobacco" data-i18n-en="Tobacco" data-i18n-hi="तंबाकू">Tobacco</option>
+            <option value="Wheat" data-i18n-en="Wheat" data-i18n-hi="गेहूँ">Wheat</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="CropAdvisory"><b data-i18n-en="Crop (Advisory)" data-i18n-hi="फसल (सलाह)">Crop (Advisory)</b></label>
+          <select name="cropname" class="form-control" id="CropAdvisory">
+            <option value="" data-i18n-en="Skip advisory" data-i18n-hi="सलाह छोड़ें">Skip advisory</option>
+            <option value="rice" data-i18n-en="rice" data-i18n-hi="चावल">rice</option>
+            <option value="maize" data-i18n-en="maize" data-i18n-hi="मक्का">maize</option>
+            <option value="chickpea" data-i18n-en="chickpea" data-i18n-hi="चना">chickpea</option>
+            <option value="kidneybeans" data-i18n-en="kidneybeans" data-i18n-hi="राजमा">kidneybeans</option>
+            <option value="pigeonpeas" data-i18n-en="pigeonpeas" data-i18n-hi="अरहर">pigeonpeas</option>
+            <option value="mothbeans" data-i18n-en="mothbeans" data-i18n-hi="मौठ">mothbeans</option>
+            <option value="mungbean" data-i18n-en="mungbean" data-i18n-hi="मूंग">mungbean</option>
+            <option value="blackgram" data-i18n-en="blackgram" data-i18n-hi="उड़द">blackgram</option>
+            <option value="lentil" data-i18n-en="lentil" data-i18n-hi="मसूर">lentil</option>
+            <option value="pomegranate" data-i18n-en="pomegranate" data-i18n-hi="अनार">pomegranate</option>
+            <option value="banana" data-i18n-en="banana" data-i18n-hi="केला">banana</option>
+            <option value="mango" data-i18n-en="mango" data-i18n-hi="आम">mango</option>
+            <option value="grapes" data-i18n-en="grapes" data-i18n-hi="अंगूर">grapes</option>
+            <option value="watermelon" data-i18n-en="watermelon" data-i18n-hi="तरबूज">watermelon</option>
+            <option value="muskmelon" data-i18n-en="muskmelon" data-i18n-hi="खरबूजा">muskmelon</option>
+            <option value="apple" data-i18n-en="apple" data-i18n-hi="सेब">apple</option>
+            <option value="orange" data-i18n-en="orange" data-i18n-hi="संतरा">orange</option>
+            <option value="papaya" data-i18n-en="papaya" data-i18n-hi="पपीता">papaya</option>
+            <option value="coconut" data-i18n-en="coconut" data-i18n-hi="नारियल">coconut</option>
+            <option value="cotton" data-i18n-en="cotton" data-i18n-hi="कपास">cotton</option>
+            <option value="jute" data-i18n-en="jute" data-i18n-hi="जूट">jute</option>
+            <option value="coffee" data-i18n-en="coffee" data-i18n-hi="कॉफी">coffee</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="City"><b data-i18n-en="City/Village (optional)" data-i18n-hi="शहर/गाँव (वैकल्पिक)">City/Village (optional)</b></label>
+          <input type="text" class="form-control" id="City" name="city"
+            placeholder="e.g., Pune" data-placeholder-en="e.g., Pune" data-placeholder-hi="उदा., पुणे" />
+        </div>
+      </div>
+      <p class="muted" data-i18n-en="If you do not know N, P, K values, choose estimated levels below."
+        data-i18n-hi="यदि आपको N, P, K मान नहीं पता, तो नीचे अनुमानित स्तर चुनें।">
+        If you do not know N, P, K values, choose estimated levels below.
+      </p>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="NitrogenLevel"><b data-i18n-en="Estimated Nitrogen" data-i18n-hi="अनुमानित नाइट्रोजन">Estimated Nitrogen</b></label>
+          <select class="form-control" id="NitrogenLevel" name="nitrogen_level">
+            <option value="low" data-i18n-en="Low" data-i18n-hi="कम">Low</option>
+            <option value="medium" data-i18n-en="Medium" data-i18n-hi="मध्यम" selected>Medium</option>
+            <option value="high" data-i18n-en="High" data-i18n-hi="अधिक">High</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="PhosphorousLevel"><b data-i18n-en="Estimated Phosphorous" data-i18n-hi="अनुमानित फॉस्फोरस">Estimated Phosphorous</b></label>
+          <select class="form-control" id="PhosphorousLevel" name="phosphorous_level">
+            <option value="low" data-i18n-en="Low" data-i18n-hi="कम">Low</option>
+            <option value="medium" data-i18n-en="Medium" data-i18n-hi="मध्यम" selected>Medium</option>
+            <option value="high" data-i18n-en="High" data-i18n-hi="अधिक">High</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="PottasiumLevel"><b data-i18n-en="Estimated Potassium" data-i18n-hi="अनुमानित पोटैशियम">Estimated Potassium</b></label>
+          <select class="form-control" id="PottasiumLevel" name="pottasium_level">
+            <option value="low" data-i18n-en="Low" data-i18n-hi="कम">Low</option>
+            <option value="medium" data-i18n-en="Medium" data-i18n-hi="मध्यम" selected>Medium</option>
+            <option value="high" data-i18n-en="High" data-i18n-hi="अधिक">High</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="weather-panel">
+        <button type="button" class="btn btn-outline-dark" id="fertilizer-locate"
+          data-i18n-en="Use My Location" data-i18n-hi="मेरी लोकेशन उपयोग करें">Use My Location</button>
+        <span class="weather-status" id="fertilizer-weather-status" data-i18n-en="Auto-fill uses your location."
+          data-i18n-hi="ऑटो-फिल आपकी लोकेशन का उपयोग करता है।">Auto-fill uses your location.</span>
+      </div>
+      <p class="muted" data-i18n-en="Tip: If auto-fill fails, you can still enter values manually."
+        data-i18n-hi="यदि ऑटो-फिल न चले, तो मान स्वयं दर्ज करें।">
+        Tip: If auto-fill fails, you can still enter values manually.
+      </p>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="fertilizer-temperature"><b data-i18n-en="Temperature (°C)" data-i18n-hi="तापमान (°C)">Temperature (°C)</b></label>
+          <input type="number" step="0.01" class="form-control" id="fertilizer-temperature" name="temperature"
+            placeholder="Auto-filled" data-placeholder-en="Auto-filled" data-placeholder-hi="स्वतः भरा" />
+        </div>
+        <div class="form-group">
+          <label for="fertilizer-humidity"><b data-i18n-en="Humidity (%)" data-i18n-hi="नमी (%)">Humidity (%)</b></label>
+          <input type="number" step="0.01" class="form-control" id="fertilizer-humidity" name="humidity"
+            placeholder="Auto-filled" data-placeholder-en="Auto-filled" data-placeholder-hi="स्वतः भरा" />
+        </div>
+      </div>
+
+      <input type="hidden" id="fertilizer-lat" name="lat" />
+      <input type="hidden" id="fertilizer-lon" name="lon" />
+      <input type="hidden" name="lang" class="lang-field" />
+
+      <div class="d-flex justify-content-center mt-3">
+        <button type="submit" class="btn btn-info primary-btn" data-i18n-en="Predict" data-i18n-hi="सुझाव दें">Predict</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

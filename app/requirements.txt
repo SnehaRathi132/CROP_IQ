@@ -1,0 +1,11 @@
+numpy
+pandas
+Flask
+scikit-learn
+joblib
+requests
+deep-translator
+Pillow
+torch
+torchvision
+gunicorn==20.0.4

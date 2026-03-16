@@ -1,0 +1,303 @@
+{
+  "generated_at": "2026-03-12T19:02:11Z",
+  "crop": {
+    "rows": 2200,
+    "columns": [
+      "N",
+      "P",
+      "K",
+      "temperature",
+      "humidity",
+      "ph",
+      "rainfall",
+      "label"
+    ],
+    "missing_values": {
+      "N": 0,
+      "P": 0,
+      "K": 0,
+      "temperature": 0,
+      "humidity": 0,
+      "ph": 0,
+      "rainfall": 0,
+      "label": 0
+    },
+    "label_distribution": {
+      "rice": 100,
+      "maize": 100,
+      "chickpea": 100,
+      "kidneybeans": 100,
+      "pigeonpeas": 100,
+      "mothbeans": 100,
+      "mungbean": 100,
+      "blackgram": 100,
+      "lentil": 100,
+      "pomegranate": 100,
+      "banana": 100,
+      "mango": 100,
+      "grapes": 100,
+      "watermelon": 100,
+      "muskmelon": 100,
+      "apple": 100,
+      "orange": 100,
+      "papaya": 100,
+      "coconut": 100,
+      "cotton": 100,
+      "jute": 100,
+      "coffee": 100
+    },
+    "numeric_summary": {
+      "N": {
+        "count": 2200.0,
+        "mean": 50.552,
+        "std": 36.917,
+        "min": 0.0,
+        "25%": 21.0,
+        "50%": 37.0,
+        "75%": 84.25,
+        "max": 140.0
+      },
+      "P": {
+        "count": 2200.0,
+        "mean": 53.363,
+        "std": 32.986,
+        "min": 5.0,
+        "25%": 28.0,
+        "50%": 51.0,
+        "75%": 68.0,
+        "max": 145.0
+      },
+      "K": {
+        "count": 2200.0,
+        "mean": 48.149,
+        "std": 50.648,
+        "min": 5.0,
+        "25%": 20.0,
+        "50%": 32.0,
+        "75%": 49.0,
+        "max": 205.0
+      },
+      "temperature": {
+        "count": 2200.0,
+        "mean": 25.616,
+        "std": 5.064,
+        "min": 8.826,
+        "25%": 22.769,
+        "50%": 25.599,
+        "75%": 28.562,
+        "max": 43.675
+      },
+      "humidity": {
+        "count": 2200.0,
+        "mean": 71.482,
+        "std": 22.264,
+        "min": 14.258,
+        "25%": 60.262,
+        "50%": 80.473,
+        "75%": 89.949,
+        "max": 99.982
+      },
+      "ph": {
+        "count": 2200.0,
+        "mean": 6.469,
+        "std": 0.774,
+        "min": 3.505,
+        "25%": 5.972,
+        "50%": 6.425,
+        "75%": 6.924,
+        "max": 9.935
+      },
+      "rainfall": {
+        "count": 2200.0,
+        "mean": 103.464,
+        "std": 54.958,
+        "min": 20.211,
+        "25%": 64.552,
+        "50%": 94.868,
+        "75%": 124.268,
+        "max": 298.56
+      }
+    },
+    "correlation": {
+      "N": {
+        "N": 1.0,
+        "P": -0.231,
+        "K": -0.141,
+        "temperature": 0.027,
+        "humidity": 0.191,
+        "ph": 0.097,
+        "rainfall": 0.059
+      },
+      "P": {
+        "N": -0.231,
+        "P": 1.0,
+        "K": 0.736,
+        "temperature": -0.128,
+        "humidity": -0.119,
+        "ph": -0.138,
+        "rainfall": -0.064
+      },
+      "K": {
+        "N": -0.141,
+        "P": 0.736,
+        "K": 1.0,
+        "temperature": -0.16,
+        "humidity": 0.191,
+        "ph": -0.17,
+        "rainfall": -0.053
+      },
+      "temperature": {
+        "N": 0.027,
+        "P": -0.128,
+        "K": -0.16,
+        "temperature": 1.0,
+        "humidity": 0.205,
+        "ph": -0.018,
+        "rainfall": -0.03
+      },
+      "humidity": {
+        "N": 0.191,
+        "P": -0.119,
+        "K": 0.191,
+        "temperature": 0.205,
+        "humidity": 1.0,
+        "ph": -0.008,
+        "rainfall": 0.094
+      },
+      "ph": {
+        "N": 0.097,
+        "P": -0.138,
+        "K": -0.17,
+        "temperature": -0.018,
+        "humidity": -0.008,
+        "ph": 1.0,
+        "rainfall": -0.109
+      },
+      "rainfall": {
+        "N": 0.059,
+        "P": -0.064,
+        "K": -0.053,
+        "temperature": -0.03,
+        "humidity": 0.094,
+        "ph": -0.109,
+        "rainfall": 1.0
+      }
+    }
+  },
+  "fertilizer": {
+    "rows": 99,
+    "columns": [
+      "Temparature",
+      "Humidity",
+      "Moisture",
+      "Soil Type",
+      "Crop Type",
+      "Nitrogen",
+      "Potassium",
+      "Phosphorous",
+      "Fertilizer Name"
+    ],
+    "missing_values": {
+      "Temparature": 0,
+      "Humidity": 0,
+      "Moisture": 0,
+      "Soil Type": 0,
+      "Crop Type": 0,
+      "Nitrogen": 0,
+      "Potassium": 0,
+      "Phosphorous": 0,
+      "Fertilizer Name": 0
+    },
+    "fertilizer_distribution": {
+      "Urea": 22,
+      "DAP": 18,
+      "28-28": 17,
+      "14-35-14": 14,
+      "20-20": 14,
+      "17-17-17": 7,
+      "10-26-26": 7
+    },
+    "soil_type_distribution": {
+      "Loamy": 21,
+      "Sandy": 20,
+      "Clayey": 20,
+      "Black": 19,
+      "Red": 19
+    },
+    "crop_type_distribution": {
+      "Sugarcane": 13,
+      "Cotton": 12,
+      "Millets": 11,
+      "Pulses": 10,
+      "Paddy": 10,
+      "Wheat": 9,
+      "Barley": 7,
+      "Oil seeds": 7,
+      "Tobacco": 7,
+      "Ground Nuts": 7,
+      "Maize": 6
+    },
+    "numeric_summary": {
+      "Temparature": {
+        "count": 99.0,
+        "mean": 30.283,
+        "std": 3.502,
+        "min": 25.0,
+        "25%": 28.0,
+        "50%": 30.0,
+        "75%": 33.0,
+        "max": 38.0
+      },
+      "Humidity": {
+        "count": 99.0,
+        "mean": 59.152,
+        "std": 5.84,
+        "min": 50.0,
+        "25%": 54.0,
+        "50%": 60.0,
+        "75%": 64.0,
+        "max": 72.0
+      },
+      "Moisture": {
+        "count": 99.0,
+        "mean": 43.182,
+        "std": 11.272,
+        "min": 25.0,
+        "25%": 34.0,
+        "50%": 41.0,
+        "75%": 50.5,
+        "max": 65.0
+      },
+      "Nitrogen": {
+        "count": 99.0,
+        "mean": 18.909,
+        "std": 11.6,
+        "min": 4.0,
+        "25%": 10.0,
+        "50%": 13.0,
+        "75%": 24.0,
+        "max": 42.0
+      },
+      "Potassium": {
+        "count": 99.0,
+        "mean": 3.384,
+        "std": 5.815,
+        "min": 0.0,
+        "25%": 0.0,
+        "50%": 0.0,
+        "75%": 7.5,
+        "max": 19.0
+      },
+      "Phosphorous": {
+        "count": 99.0,
+        "mean": 18.606,
+        "std": 13.477,
+        "min": 0.0,
+        "25%": 9.0,
+        "50%": 19.0,
+        "75%": 30.0,
+        "max": 42.0
+      }
+    }
+  }
+}
