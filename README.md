@@ -1,23 +1,21 @@
 # CropIQ 🌿
-#### A simple ML and DL based website which recommends the best crop to grow, fertilizers to use and the diseases caught by your crops.
-
-#### This project is featured on [Krish Naik's](https://www.youtube.com/channel/UCNU_lfiiWBdtULKOw6X0Dig) YouTube Channel => Check it out [here](https://www.youtube.com/watch?v=zJcSod-L-Ps)
+#### A machine learning web application for crop recommendation, fertilizer suggestions, and plant disease detection.
 
 ## DISCLAIMER ⚠️
-This is a POC(Proof of concept) kind-of project. The data used here comes up with no guarantee from the creator. So, don't use it for making farming decisions. If you do so, the creator is not responsible for anything. However, this project presents the idea that how we can use ML/DL into precision farming if developed at large scale and with authentic and verified data.
+This is a POC (Proof of concept) project. The data used here comes with no guarantee from the creator. Please don't use it for making farming decisions. If you do so, the creator is not responsible for anything. However, this project demonstrates how we can use ML/DL in precision farming when developed at large scale with authentic and verified data.
 
 ## MOTIVATION 💪
-- Farming is one of the major sectors that influences a country’s economic growth. 
+- Farming is one of the major sectors that influences a country's economic growth.
 
-- In country like India, majority of the population is dependent on agriculture for their livelihood. Many new technologies, such as Machine Learning and Deep Learning, are being implemented into agriculture so that it is easier for farmers to grow and maximize their yield. 
+- In countries like India, the majority of the population depends on agriculture for their livelihood. Many new technologies, such as Machine Learning and Deep Learning, are being implemented into agriculture so that it is easier for farmers to grow and maximize their yield.
 
-- In this project, I present a website in which the following applications are implemented; Crop recommendation, Fertilizer recommendation and Plant disease prediction, respectively. 
+- In this project, I present a website in which the following applications are implemented: Crop recommendation, Fertilizer recommendation, and Plant disease prediction.
 
-    - In the crop recommendation application, the user can provide the soil data from their side and the application will predict which crop should the user grow. 
-    
-    - For the fertilizer recommendation application, the user can input the soil data and the type of crop they are growing, and the application will predict what the soil lacks or has excess of and will recommend improvements. 
-    
-    - For the last application, that is the plant disease prediction application, the user can input an image of a diseased plant leaf, and the application will predict what disease it is and will also give a little background about the disease and suggestions to cure it.
+    - **Crop Recommendation**: Users can provide soil data and the application will predict which crop should be grown.
+
+    - **Fertilizer Recommendation**: Users can input soil data and crop type, and the application will predict what the soil lacks or has excess of and recommend improvements.
+
+    - **Plant Disease Detection**: Users can upload an image of a plant leaf, and the application will predict the disease and provide suggestions for treatment.
 
 ## DATA SOURCE 📊
 - [Crop recommendation dataset ](https://www.kaggle.com/atharvaingle/crop-recommendation-dataset) (custom built dataset)
@@ -47,10 +45,8 @@ This is a POC(Proof of concept) kind-of project. The data used here comes up wit
 
 ## DEPLOYMENT 🚀
 
-#### Deployment is done using [deploy](https://github.com/Gladiator07/Harvestify/tree/deploy) branch
-#### This website is deployed at [Heroku](https://www.heroku.com/)
-#### You can access it [here](https://harvestify.herokuapp.com/)
-#### Note: The website may take a minute to load sometimes, as the server may be in hibernate state
+#### This project can be deployed using various platforms like Heroku, Railway, or Render.
+#### For deployment, use the `app/` directory which contains the Flask application.
 
 ## How to use 💻
 - Crop Recommendation system ==> enter the corresponding nutrient values of your soil, state and city. Note that, the N-P-K (Nitrogen-Phosphorous-Pottasium) values to be entered should be the ratio between them. Refer [this website](https://www.gardeningknowhow.com/garden-how-to/soil-fertilizers/fertilizer-numbers-npk.htm) for more information.
@@ -82,33 +78,36 @@ Note that, for now it only supports following crops
 </details>
 
 ## How to run locally 🛠️
-- Before the following steps make sure you have [git](https://git-scm.com/download), [Anaconda](https://www.anaconda.com/) or [miniconda](https://docs.conda.io/en/latest/miniconda.html) installed on your system
-- Clone the complete project with `git clone https://github.com/Gladiator07/Harvestify.git` or you can just download the code and unzip it
-- **Note:** The master branch doesn't have the updated code used for deployment, to download the updated code used for deployment you can use the following command
+- Make sure you have [Python](https://www.python.org/downloads/) installed on your system
+- Clone this project:
+  ```bash
+  git clone https://github.com/SnehaRathi132/CROP_IQ.git
+  cd CROP_IQ
   ```
-  ❯ git clone -b deploy https://github.com/Gladiator07/Harvestify.git 
+- Create a virtual environment:
+  ```bash
+  python -m venv venv
+  # On Windows:
+  venv\Scripts\activate
+  # On macOS/Linux:
+  source venv/bin/activate
   ```
-- `deploy` branch has only the code required for deploying the app (rest of the code that was used for training the models, data preparation can be accessed on `master` branch)
-- It is highly recommended to clone the deploy branch for running the project locally (the further steps apply only if you have the deploy branch cloned)
-- Once the project is cloned, open anaconda prompt in the directory where the project was cloned and paste the following block
-  ```
-  conda create -n harvestify python=3.6.12
-  conda activate harvestify
+- Install dependencies:
+  ```bash
   pip install -r requirements.txt
   ```
-- Optional: set your OpenWeatherMap API key for live weather
-  ```
+- Optional: Set your OpenWeatherMap API key for live weather:
+  ```bash
+  # On Windows:
+  set OPENWEATHER_API_KEY="your_key_here"
+  # On macOS/Linux:
   export OPENWEATHER_API_KEY="your_key_here"
   ```
-- And finally run the project with
+- Run the application:
+  ```bash
+  python app/app.py
   ```
-  python app.py
-  ```
-- Open the localhost url provided after running `app.py` and now you can use the project locally in your web browser.
-- For the updated Flask app dependencies, you can also use:
-  ```
-  pip install -r app/requirements.txt
-  ```
+- Open your browser and go to `http://localhost:5000`
 
 ## Updated Training Pipeline (Archive Datasets)
 - Train the crop + fertilizer models from the `archive/` datasets:
@@ -157,11 +156,11 @@ This was my first big project so there are lot of things to improve upon
 - Modularized code can be written instead of writing in Jupyter Notebooks (will follow this in upcoming projects)
 
 ## Credits 💳
-This project is heavily inspired from **[this GitHub repository](https://github.com/7NNS7/Recommendation-System-for-Farming)** (especially the crop recommendation and fertilizer recommendation part). This project is an extended version of the above mentioned project. Please star the mentioned repo.
+This project was developed as part of learning machine learning and web development. The core ML models and concepts are implemented from scratch.
 
 ## License 📝
-This project is licensed under [GNU (GENERAL PUBLIC LICENSE)](https://github.com/Gladiator07/Harvestify/blob/master/LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact 📞
 
-#### If you have any doubt or want to contribute feel free to email me or hit me up on [LinkedIn](https://www.linkedin.com/in/atharva-ingle-564430187/)
+#### If you have any questions or want to contribute, feel free to reach out!
