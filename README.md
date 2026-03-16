@@ -13,13 +13,13 @@
 ## 🖼️ Screenshots
 
 ### 🏠 Home Page
-![Home Page](screenshots/home.png)
+![Home Page](app\static\images\home.png)
 
 ### 🌾 How It Works
-![How It Works](screenshots/how-it-works.png)
+![How It Works](app\static\images\how-it-works.png)
 
 ### 🧪 Our Services
-![Services](screenshots/services.png)
+![Services](app\static\images\services.png)
 
 ---
 
