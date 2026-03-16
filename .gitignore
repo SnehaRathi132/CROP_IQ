@@ -91,12 +91,137 @@ Thumbs.db
 *.onnx
 *.tflite
 
+Data_to_consider/
+References/
+TEST_Project/
+.ipynb_checkpoints/
+.vscode/
+__pycache__/
+New Plant Diseases Dataset(Augmented)/
+Docs/
+.DS_Store
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Machine Learning
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+*.model
+*.weights
+*.pb
+*.onnx
+*.tflite
+
 # Data files (uncomment if you want to ignore large datasets)
 # *.csv
 # *.json
 # *.parquet
 # data/
 # datasets/
+
+# Flask
+instance/
+.webassets-cache
+
+# TensorBoard
+runs/
+logs/
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# DVC
+.dvc/
+.dvc/cache/
+.dvc/tmp/
+
+# Weights & Biases
+wandb/
+
+# Model checkpoints
+checkpoints/
+*.ckpt
+*.pth.tar
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+*.bak
+*.backup
 
 # Logs
 *.log
