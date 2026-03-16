@@ -372,16 +372,16 @@ li > a:only-child:after { content: ''; }
 }
 
 .banner-top {
-    background: url(../images/3.jpg) no-repeat center;
+    background: linear-gradient(135deg, rgba(20, 120, 80, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%), url(../images/Background_Home_img1.png) no-repeat center;
     background-size: cover;
+    background-attachment: fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    -moz-background-size: cover;
 }
 
 .banner-top1 {
-    background: url(../images/1.jpg) no-repeat center;
+    background: url(../images/Background_Home_img1.png) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -589,18 +589,33 @@ p.about-text {
     margin-bottom: 120px;
 }
 
+.blog-grids img {
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    width: 100%;
+}
+
 .blog-left,.blog-middle,.blog-right{
 	position: relative;
+    display: flex;
+    flex-direction: column;
 }
 .blog-info {
     background: #fff;
     padding: 30px;
-    margin-top: -2em;
-    position: absolute;
-    left: 6%;
-    right: 6%;
-    top: 200px;
-	box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.08), 0 5px 8px 0 rgba(0, 0, 0, 0.12), 0 1px 14px 0 rgba(0, 0, 0, 0.06);
+    margin-top: 20px;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    min-height: auto;
+}
+
+.blog-info:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
 }
 .blog-info p {
     letter-spacing: 1px;
@@ -1071,18 +1086,83 @@ form.newsletter {
 /* //newsletter */
 /*-- //services page --*/
 
-/*-- contact --*/ 
-.contact-left input[type="text"],.contact-left input[type="email"]{
-	border: 1px solid #ccc;
-    font-size: 1em;
-    color: #828282;
-    background: none;
-    width: 100%;
-    font-weight: 600;
-    letter-spacing: 1px;
-    padding: 15px 20px;
-    outline: none;
+/*-- How It Works Styling --*/
+.how-it-works-steps {
+    position: relative;
+    padding: 20px 0;
 }
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 25px;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #f8f9fc 100%);
+    border-left: 5px solid #009f4d;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.step-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 25px rgba(0, 159, 77, 0.15);
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f6 100%);
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    background: linear-gradient(135deg, #009f4d 0%, #00c853 100%);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 36px;
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(0, 159, 77, 0.3);
+    transition: all 0.3s ease;
+}
+
+.step-item:hover .step-number {
+    transform: scale(1.15) rotateY(360deg);
+    box-shadow: 0 8px 30px rgba(0, 159, 77, 0.4);
+}
+
+.step-item h5 {
+    font-size: 1.3em;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.step-item p {
+    color: #5a6c7d;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin: 0;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .step-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .step-number {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+        font-size: 28px;
+    }
+}
+/*-- //How It Works Styling --*/
 .contact-right textarea{
 	border:1px solid #ccc;
 	font-size:1em;
@@ -1792,4 +1872,147 @@ h1, h2, h3, h4 {
 
 .site-footer a {
   color: #d7e2e7;
+}
+
+/* New UI Enhancements for CropIQ */
+.feature-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  margin: 5px 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-box h4 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.service-card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.service-card img {
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover img {
+  transform: scale(1.05);
+}
+
+.service-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.service-cta {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: linear-gradient(45deg, #28a745, #20c997);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-links {
+  margin: 15px 0;
+}
+
+.footer-links a {
+  color: #d7e2e7 !important;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #28a745 !important;
+  text-decoration: underline;
+}
+
+/* Enhanced button styles */
+.btn-success {
+  background: linear-gradient(45deg, #28a745, #20c997);
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+  background: linear-gradient(45deg, #218838, #1aa085);
+}
+
+.btn-outline-light {
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Enhanced banner text */
+.text-wh {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
 }
